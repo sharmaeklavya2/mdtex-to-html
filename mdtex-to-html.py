@@ -14,7 +14,7 @@ from jinja2 import Template
 from tex_md_escape import tex_md_escape
 
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 DEFAULT_TEMPLATE_PATH = pjoin(BASE_DIR, 'template.html')
 DEFAULT_MATHJAX = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js'
 
