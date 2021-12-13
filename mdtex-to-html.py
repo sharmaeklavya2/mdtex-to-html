@@ -16,7 +16,7 @@ from tex_md_escape import tex_md_escape
 
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 DEFAULT_TEMPLATE_PATH = pjoin(BASE_DIR, 'template.html')
-DEFAULT_MATHJAX = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js'
+DEFAULT_MATHJAX = 'https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js'
 
 
 def read_file(fpath):
@@ -32,11 +32,14 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('in_path', help='path to input file')
     parser.add_argument('-o', '--out', help='path to output file')
+    parser.add_argument('--mathjax-url', help='URL of MathJax to use')
     args = parser.parse_args()
 
     template = Template(read_file(DEFAULT_TEMPLATE_PATH))
     html_body = convert(read_file(args.in_path))
-    html = template.render({'body': html_body, 'mathjax_url': DEFAULT_MATHJAX})
+    if args.mathjax_url is None:
+        args.mathjax_url = DEFAULT_MATHJAX
+    html = template.render({'body': html_body, 'mathjax_url': args.mathjax_url})
 
     if args.out is not None:
         with open(args.out, 'w') as fp:
