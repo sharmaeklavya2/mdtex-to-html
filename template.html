@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light dark" />
 <script type="text/x-mathjax-config">MathJax.Hub.Config({
 "TeX": {"extensions": ["AMSmath.js", "AMSsymbols.js", "noErrors.js", "noUndefined.js"]},
 "extensions": ["tex2jax.js"],
@@ -13,16 +14,20 @@
 <script type="text/javascript" async="async" src="{{mathjax_url}}"></script>
 <style>
 html {font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, 'Open Sans', sans-serif;}
-body {margin: 0; padding: 0 2.5em; color: #202020; line-height: 1.5; font-size: 1.1em;}
+body {--textC: #202020; --emphC: #101010; --linkC: #1a0dab; --vlinkC: #681da8; --ltintC: rgba(0,0,0,0.02);}
+@media (prefers-color-scheme: dark) {
+body {background: #1b1e20; --textC: #c0c0c0; --emphC: #e1e1e1; --linkC: #8ab4f8; --vlinkC: #c58af9; --ltintC: rgba(255,255,255,0.02);}
+img:not(.nofilter) {filter: brightness(.8) contrast(1.2);}
+}
+body {margin: 0; padding: 0 2.5em; line-height: 1.5; font-size: 1.1em; color: var(--textC);}
 a:not(:hover) {text-decoration: none;}
+a {color: var(--linkC);}
+a:visited {color: var(--vlinkC);}
 table {border-collapse: collapse;}
 td, th {border: 1px solid gray; padding: 2px 8px;}
 pre > code {display: block; padding: 0.8em;}
-pre > code, code {background-color: rgba(0, 0, 0, 0.02);}
-@media (max-width: 600px) {
-    body {padding: 0 1em;}
-    ul, ol {padding-left: 1.2em;}
-}
+pre > code, code {background-color: var(--ltintC);}
+@media (max-width: 600px) {body {padding: 0 1em;} ul, ol {padding-left: 1.2em;}}
 </style>
 </head>
 <body>
