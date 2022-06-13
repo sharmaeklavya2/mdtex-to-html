@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="color-scheme" content="light dark" />
+{% if mathjax_url %}
 <script type="text/x-mathjax-config">MathJax.Hub.Config({
 "TeX": {"extensions": ["AMSmath.js", "AMSsymbols.js", "noErrors.js", "noUndefined.js"]},
 "extensions": ["tex2jax.js"],
@@ -12,6 +13,7 @@
 "tex2jax": {"inlineMath": [ ["$","$"], ["\\(","\\)"] ], "processEscapes": true},
 });</script>
 <script type="text/javascript" async="async" src="{{mathjax_url}}"></script>
+{% endif %}
 <style>
 html {font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, 'Open Sans', sans-serif;}
 body {--textC: #202020; --emphC: #101010; --linkC: #1a0dab; --vlinkC: #681da8; --ltintC: rgba(0,0,0,0.02);}

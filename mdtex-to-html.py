@@ -32,7 +32,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('in_path', help='path to input file')
     parser.add_argument('-o', '--out', help='path to output file')
-    parser.add_argument('--mathjax-url', help='URL of MathJax to use')
+    parser.add_argument('--mathjax-url',
+        help='URL of MathJax to use. Use empty string to omit including MathJax.')
     args = parser.parse_args()
 
     template = Template(read_file(DEFAULT_TEMPLATE_PATH))
